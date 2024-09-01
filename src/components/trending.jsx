@@ -1,5 +1,8 @@
 import {useState,React,useEffect} from 'react'
 import styled from 'styled-components'
+import './trending.css'
+import profit from '../assets/profit.png'
+import loss from '../assets/loss.png'
 function Trending() {
   const [coin,setCoin] = useState([])
 
@@ -7,7 +10,7 @@ function Trending() {
     const api_key = process.env.REACT_APP_API_KEY
     const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}
+      headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-uh7gjgSWPiiS44Dg3R7Nhh1D'}
     };
     const trending_data = async ()=>{
       const response = await fetch('https://api.coingecko.com/api/v3/search/trending', options)
@@ -25,8 +28,14 @@ function Trending() {
           <Bars>
             <img src={items.item.thumb} alt=''></img>
             <h3>{items.item.name + "\n"+"("+ items.item.symbol+")"}</h3>
-            <h4>{items.item.data.price_change_percentage_24h.usd.toFixed(2) + "%"}</h4>
-          </Bars>
+            
+            <div className={items.item.data.price_change_percentage_24h.usd >= 0 ? 'profit':'loss'}> 
+              <h4>{items.item.data.price_change_percentage_24h.usd.toFixed(2) + "%"}</h4>
+              <Change src={items.item.data.price_change_percentage_24h.usd >= 0 ?profit:loss}></Change>
+            </div>
+            
+            
+          </Bars>   
         )
       }
       )}
@@ -63,14 +72,20 @@ top:-4rem;
 width:50%;
 }
 
-h4{
-font-size:75%;
+// h4{
+// font-size:75%;
+// position:relative;
+// padding:0px;
+// left:80%;
+// width:25%;
+// top:-6.2rem;
+// }
+`
+
+const Change = styled.img`
 position:relative;
-padding:0px;
-left:80%;
-width:25%;
-top:-6.2rem;
-}
+left:-4rem;
+top:-2.7rem;
 `
 
 

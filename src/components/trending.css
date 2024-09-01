@@ -1,0 +1,24 @@
+.profit{
+    position:relative;
+    width:20%;
+    background-color:rgb(117, 255, 156);
+    top:-2rem;
+    text-align:right;
+    left:75%;
+    top:-6.5rem;
+    height: 40%;
+    border-radius:10%;
+}
+
+.loss{
+    position:relative;
+    width:20%;
+    background-color:rgb(243, 133, 151);
+    top:-2rem;
+    text-align:right;
+    left:75%;
+    top:-6.5rem;
+    height: 40%;
+    border-radius:10%;
+}
+
