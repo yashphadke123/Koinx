@@ -1,5 +1,3 @@
-// TradingViewWidget.jsx
-// TradingViewWidget.jsx
 import React, { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget(props) {
@@ -36,5 +34,6 @@ function TradingViewWidget(props) {
     </div>
   );
 }
+
 
 export default memo(TradingViewWidget);
