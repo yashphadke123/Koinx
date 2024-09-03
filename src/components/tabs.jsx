@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import './tabs.css'
 import OverView from './overview'
+import Fundamentals from './fundamentals'
 function Tabs() {
   const [toggle,setToggle] = useState(1)
   const toggle_Tabs = (index) =>{
@@ -15,7 +16,9 @@ function Tabs() {
         </div>
         </div>
       <div onClick={()=>toggle_Tabs(2)} className={toggle === 2 ? 'active_tab':'tab'}>Fundamentals
-        <div className={toggle === 2 ? 'active_content':'content'}>2</div>
+        <div className={toggle === 2 ? 'active_content':'content'}>
+           <Fundamentals id='bitcoin'></Fundamentals>
+        </div>
       </div>
       <div onClick={()=>toggle_Tabs(3)} className={toggle === 3 ? 'active_tab':'tab'}>News Insight
         <div className={toggle === 3 ? 'active_content':'content'}>3</div>
