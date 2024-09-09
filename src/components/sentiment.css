@@ -1,0 +1,13 @@
+.up_more{
+    position:relative;
+    left:15%;
+    top:-10rem;
+    color: #01FF2B;
+}
+
+.down_more{
+    position:relative;
+    left:15%;
+    top:-10rem;
+    color: #FF3301;
+}

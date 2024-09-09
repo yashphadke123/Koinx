@@ -19,7 +19,6 @@ function Trending() {
       } 
       trending_data()
     },[])
-    console.log(coin)
   return (
     <Main>
       <h1>Trending Coins (24h)</h1>
