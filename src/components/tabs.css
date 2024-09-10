@@ -4,3 +4,15 @@
 .content{
   display: none;
 }
+
+#overview{
+  position: relative;
+  top:-53rem;
+  left:-1%;
+}
+
+#funda{
+  position: relative;
+  top:-54.3rem;
+  left:8%;
+}
