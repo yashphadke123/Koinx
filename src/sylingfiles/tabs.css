@@ -1,0 +1,26 @@
+.active_tab{
+    color: rgb(0, 0, 0)  ;
+    width: 50%;
+}
+
+.active_tab.over{
+  color: rgb(0, 0, 0)  ;
+  width: 50%;
+  position: relative;
+  left: 0%;
+}
+.content{
+  display: none;
+}
+
+.tab-container{
+  display: flex;
+  position: relative;
+  top:-52rem;
+}
+
+.tab{
+  height: 10%;
+  padding-left:1rem;
+  padding-right:1rem;
+}

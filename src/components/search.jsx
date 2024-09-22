@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { type } from '@testing-library/user-event/dist/type'
 
 function Search() {
     const [coin,searchCoin] = useState('')
@@ -13,21 +12,24 @@ function Search() {
         navigate("/"+coin)
     }
   return ( 
-    <form onSubmit={submitHandler}>
+    <Forms onSubmit={submitHandler}>
         <div>
             <FaSearch></FaSearch>
-            <input onChange={(e)=>{searchCoin(e.target.value)}} type='text' value={coin}></input>
+            <FormStyle onChange={(e)=>{searchCoin(e.target.value)}} type='text' value={coin}></FormStyle>
         </div>
-    </form>
+    </Forms>
   )
 }
 
 export default Search
 
-// const FormStyle = styled.form`
-// width:20%;
+const FormStyle = styled.input`
+width:60%;
+`
 
-// div{
-// width:20%;
-// }
-// `
+const Forms = styled.form`
+position:relative;
+left:80%;
+width:20%;
+top:-12.5rem;
+`

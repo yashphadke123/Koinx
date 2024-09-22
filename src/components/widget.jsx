@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, memo } from 'react';
+import styled from 'styled-components';
 
 function TradingViewWidget(props) {
   const container = useRef();
@@ -30,10 +31,12 @@ function TradingViewWidget(props) {
   );
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
-    </div>
+    <Cont className="tradingview-widget-container" ref={container}>
+    </Cont>
   );
 }
 
-
+const Cont = styled.div`
+padding-top:1%;
+`
 export default memo(TradingViewWidget);

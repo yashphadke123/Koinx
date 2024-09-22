@@ -1,6 +1,6 @@
 import {useState,React,useEffect} from 'react'
 import styled from 'styled-components'
-import './trending.css'
+import '../sylingfiles/trending.css'
 import profit from '../assets/profit.png'
 import loss from '../assets/loss.png'
 function Trending() {
@@ -10,7 +10,7 @@ function Trending() {
     const api_key = process.env.REACT_APP_API_KEY
     const options = {
       method: 'GET',
-      headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-a69KTs2FiuKFuDUMmpUiPCUK'}
+      headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}
     };
     const trending_data = async ()=>{
       const response = await fetch('https://api.coingecko.com/api/v3/search/trending', options)

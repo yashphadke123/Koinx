@@ -7,14 +7,13 @@ function News(props) {
     const api_key = process.env.REACT_APP_API_KEY
     useEffect(()=>{
         const get_coin_data = async(id) =>{
-            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-a69KTs2FiuKFuDUMmpUiPCUK'}};
+            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}};
             const response = await fetch('https://api.coingecko.com/api/v3/coins/'+id, options)
             const data = await response.json()
             Setcoin(data)
         }
         get_coin_data(props.id)
-    },[])
-    console.log(coin.description.en)
+    },[props.id])
   return (
     <Main>
         <h1>About {coin.id}</h1>
@@ -27,7 +26,9 @@ function News(props) {
 export default News
 
 const Main = styled.div`
-width:65%;
+position:relative;
+left:-31%;
+width:130%;
 height:20rem;
 background-color:white;
 border-radius:2%;

@@ -1,7 +1,7 @@
 import {useEffect,useState,React}from 'react'
 import styled from 'styled-components'
 import { PieChart,Pie,Tooltip, Cell } from 'recharts'
-import './sentiment.css'
+import '../sylingfiles/sentiment.css'
 
 function Sentiment(props) {
     const init_data = {"sentiment_votes_up_percentage":84.07,"sentiment_votes_down_percentage":15.93}
@@ -9,13 +9,13 @@ function Sentiment(props) {
     const api_key = process.env.REACT_APP_API_KEY
     useEffect(()=>{
         const get_coin_data = async(id) =>{
-            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-a69KTs2FiuKFuDUMmpUiPCUK'}};
+            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}};
             const response = await fetch('https://api.coingecko.com/api/v3/coins/'+id, options)
             const data = await response.json()
             Setcoin(data)
         }
         get_coin_data(props.id)
-    },[])
+    },[props.id])
 
     const data = [
         {name:"up_votes",percentage:coin.sentiment_votes_up_percentage},
@@ -50,7 +50,9 @@ function Sentiment(props) {
 export default Sentiment
 
 const Main = styled.div`
-width:65%;
+position:relative;
+left:-48%;
+width:130%;
 height:20rem;
 background-color:white;
 border-radius:2%;

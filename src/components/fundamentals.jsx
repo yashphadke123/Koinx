@@ -8,17 +8,17 @@ function Fundamentals(props) {
     const api_key = process.env.REACT_APP_API_KEY
     useEffect(()=>{
         const get_coin_data = async(id) =>{
-            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-a69KTs2FiuKFuDUMmpUiPCUK'}};
+            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}};
             const response = await fetch('https://api.coingecko.com/api/v3/coins/'+id, options)
             const data = await response.json()
             Setcoin(data)
         }
         get_coin_data(props.id)
-    },[])
+    },[props.id])
   return (
     <Main>
         <h1>Fundamentals</h1>
-        <Lefttitle>Bitcoin Price:</Lefttitle>
+        <Lefttitle>Current Price:</Lefttitle>
         <Lefttitle>24h Low/24h High:</Lefttitle>
         <Lefttitle>7d Low/7d High:</Lefttitle>
         <Lefttitle>Trading Volume:</Lefttitle>
@@ -49,7 +49,9 @@ function Fundamentals(props) {
 export default Fundamentals
 
 const Main = styled.div`
-width:65%;
+position:relative;
+left:-13.5%;
+width:130%;
 height:20rem;
 background-color:white;
 border-radius:2%;

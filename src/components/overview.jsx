@@ -7,26 +7,26 @@ function OverView(props) {
     const api_key = process.env.REACT_APP_API_KEY
     useEffect(()=>{
         const get_coin_data = async(id) =>{
-            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-a69KTs2FiuKFuDUMmpUiPCUK'}};
+            const options = {method: 'GET',headers: {accept: 'application/json', 'x-cg-demo-api-key': api_key}};
             const response = await fetch('https://api.coingecko.com/api/v3/coins/'+id, options)
             const data = await response.json()
             Setcoin(data)
         }
         get_coin_data(props.id)
-    },[])
+    },[props.id])
         return (
             <Main>
                <h1>Performance</h1>
                <Low>Today's Low</Low>
-               <Low24> ${coin.market_data.low_24h.usd}</Low24>
+               <Low24> ${(coin.market_data.low_24h.usd).toFixed(2)}</Low24>
                <Line1></Line1>
                <High>Today's High</High>
-               <High24> ${coin.market_data.high_24h.usd}</High24>
+               <High24> ${(coin.market_data.high_24h.usd).toFixed(2)}</High24>
                <Low>52 Week Low</Low>
-               <Low24> ${coin.market_data.atl.usd}</Low24>
+               <Low24> ${(coin.market_data.atl.usd).toFixed(2)}</Low24>
                <Line1></Line1>
                <High>52 Week High</High>
-               <High24> ${coin.market_data.ath.usd}</High24>
+               <High24> ${(coin.market_data.ath.usd).toFixed(2)}</High24>
             </Main>
           )
 }
@@ -34,7 +34,7 @@ function OverView(props) {
 export default OverView
 
 const Main = styled.div`
-width:65%;
+width:130%;
 height:20rem;
 background-color:white;
 border-radius:2%;

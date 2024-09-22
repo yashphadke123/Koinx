@@ -1,42 +1,42 @@
 import React from 'react'
 import { useState } from 'react'
-import './tabs.css'
+import '../sylingfiles/tabs.css'
 import OverView from './overview'
 import Fundamentals from './fundamentals'
 import News from './news'
 import Sentiment from './sentiment'
 
 
-function Tabs() {
+function Tabs(props) {
   const [toggle,setToggle] = useState(1)
   const toggle_Tabs = (index) =>{
     setToggle(index)
   }
-  return (
-    <ul>  
-      <div onClick={()=>toggle_Tabs(1)} className={toggle === 1 ? 'active_tab':'tab'} id='overview'>Overview
-        <div className={toggle === 1 ? 'active_content':'content'} id='over'>
-          <OverView id='bitcoin'></OverView>
-        </div>
-        </div>
-      <div onClick={()=>toggle_Tabs(2)} className={toggle === 2 ? 'active_tab':'tab'} id='funda'>Fundamentals
-        <div className={toggle === 2 ? 'active_content':'content'}>
-           <Fundamentals id='bitcoin'></Fundamentals>
+    return (
+    <div className='tab-container'>  
+      <div onClick={()=>toggle_Tabs(1)} className={toggle === 1 ? 'active_tab over':'tab'} >Overview
+      <div className={toggle === 1 ? 'active_content':'content'}>
+          <OverView id={props.name}></OverView>
         </div>
       </div>
+      <div onClick={()=>toggle_Tabs(2)} className={toggle === 2 ? 'active_tab':'tab'}>Fundamentals
+      <div className={toggle === 2 ? 'active_content':'content'}>
+           <Fundamentals id={props.name} className='funda'></Fundamentals>
+        </div>
+      </div>
+
       <div onClick={()=>toggle_Tabs(3)} className={toggle === 3 ? 'active_tab':'tab'}>News Insight
         <div className={toggle === 3 ? 'active_content':'content'}>
-        <News id='bitcoin'></News>  
+        <News id={props.name}></News>  
         </div>
       </div>
       <div onClick={()=>toggle_Tabs(4)} className={toggle === 4 ? 'active_tab':'tab'}>Sentiment
         <div className={toggle === 4 ? 'active_content':'content'}>
-          <Sentiment id='bitcoin'></Sentiment>
+          <Sentiment id={props.name}></Sentiment>
           </div>
       </div>
-    </ul> 
+    </div> 
   )
 }
-
 export default Tabs
 

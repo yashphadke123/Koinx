@@ -1,0 +1,88 @@
+.carousel{
+    position: relative;
+    top:-50rem;
+    background-color: white;
+    height:150vh;
+}
+
+.contentContainer{
+    height: 50vh;
+    position: sticky;
+    top: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.images{
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 3vw;
+    padding: 0 3rem 0 3rem;
+}
+
+.thumb{
+    width:13%;
+    position: relative;
+    left: 10%;;
+}
+
+.tic{
+    position: relative;
+    left:25%;
+    top:-5rem;
+}
+
+.chn{
+    position: relative;
+    left:55%;
+    top:-8rem;
+}
+
+.imageItem{
+    border-style: solid;
+    border-color: black;
+    width: 400px;
+    height: 250px;
+    border-width: 2px;
+    border-radius: 4px;
+}
+.price{
+    position: relative;
+    left:10%;
+    top:-7rem;
+    font-size: 150%;;
+}
+
+.line{
+    position: relative;
+    left: 10%;
+    width:250px;
+    top:-8rem;
+}
+
+.heading{
+    padding-left: 3rem;
+    padding-top: 4rem;
+}
+
+.pchn{
+    position: relative;
+    left:55%;
+    top:-8rem;
+    background-color: rgb(117, 255, 156);
+    width:15%;
+    text-align: center;
+    border-radius:10%;
+}
+
+.nchn{
+    position: relative;
+    left:55%;
+    top:-8rem;
+    background-color: rgb(243, 133, 151);
+    text-align: center;
+    width:15%;
+}
